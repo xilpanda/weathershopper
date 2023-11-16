@@ -1,12 +1,14 @@
 name: Cypress Tests
 
-on: [push]
+# This defines when the action will run. 
+on: 
+  push:
+  workflow_dispatch:
 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-    services:
-      # Define any services needed, e.g., a database, if your tests require it
+
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
