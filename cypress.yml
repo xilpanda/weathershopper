@@ -1,0 +1,18 @@
+name: Cypress Tests
+
+on: [push]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    services:
+      # Define any services needed, e.g., a database, if your tests require it
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Build Docker Image
+      run: docker build -t my-cypress-image .
+
+    - name: Run Cypress Tests
+      run: docker run --rm my-cypress-image
